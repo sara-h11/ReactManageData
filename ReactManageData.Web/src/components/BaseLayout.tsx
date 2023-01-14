@@ -43,7 +43,8 @@ function BaseLayout() {
                       <Photos /> </Suspense>} >
                       <Route
                         path=":id"
-                        element={<PhotoDetail />}
+                        element={<Suspense fallback={<div>is  loading</div>}>
+                          <PhotoDetail /> </Suspense>}
                         />
                       </Route>
                     <Route path="counter" element={<Suspense fallback={<div>is loading</div>}>

@@ -1,23 +1,30 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// import { api } from "../utils/api";
+
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
 import { PhotoProps } from "./PhotoProps";
 import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
-import { apiPhoto } from "utils/apiPhoto";
+import useFetchData from "hooks/useFetchData";
 
 function PhotoDetail() {
+    const {posts} = useFetchData<PhotoProps>('photos');
     const params= useParams();
     const [photoDetail, setPhotoDetail] = useState<PhotoProps>();
     const navigate = useNavigate();
     useEffect(() => {
-        (async () => {
-            const resp =await apiPhoto.get<PhotoProps[]>(`photos?id=` + params.id);
-            setPhotoDetail(resp.data[0]);
-            console.log(resp);
-        })()
-    }, [params])
+        if(posts && params.id){
+            setPhotoDetail(posts[+params.id - 1]);
+        }
+        
+    } , [params , posts])
+    // useEffect(() => {
+    //     (async () => {
+    //         const resp =await apiPhoto.get<PhotoProps[]>(`photos?id=` + params.id);
+    //         setPhotoDetail(resp.data[0]);
+    //         console.log(resp);
+    //     })()
+    // }, [params])
     return ( 
        <>
         
