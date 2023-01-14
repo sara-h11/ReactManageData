@@ -23,7 +23,7 @@ function PhotoDetail() {
                     title={photoDetail?.title.substring(0, 20)}
                     cover={<Image alt="example" src={photoDetail?.url} />}
                 >
-                    <Button onClick={() => navigate(-1)} icon={<CloseOutlined />} style={{position:"absolute", top: 1, right: 1, paddingTop: 0}} danger type="primary"></Button>
+                    <Button onClick={() => navigate("/photos")} icon={<CloseOutlined />} style={{position:"absolute", top: 1, right: 1, paddingTop: 0}} danger type="primary"></Button>
                     <Meta title={photoDetail?.title} description={photoDetail?.id} />
             </Card>
             {/* <Button onClick={() => navigate(-1)} className="m-2 "><ArrowLeftOutlined />Back</Button> */}
