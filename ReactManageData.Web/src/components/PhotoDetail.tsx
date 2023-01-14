@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
 import { PhotoProps } from "./PhotoProps";
 import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
-import useFetchData from "hooks/useFetchData";
 
 function PhotoDetail() {
-    const {posts} = useFetchData<PhotoProps>('photos');
     const params= useParams();
+    const location = useLocation();
     const [photoDetail, setPhotoDetail] = useState<PhotoProps>();
     const navigate = useNavigate();
     useEffect(() => {
-        if(posts && params.id){
-            setPhotoDetail(posts[+params.id - 1]);
-        }
-        
-    } , [params , posts]);
+        if(location.state){
+            setPhotoDetail(location.state);
+        } 
+    } , [params]);
     return ( 
        <>
             <Card

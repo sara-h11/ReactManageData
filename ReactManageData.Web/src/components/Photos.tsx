@@ -26,7 +26,7 @@ import { PhotoProps } from './PhotoProps';
     {
         ...genColumn('title'),
         render: (title: string, record) => (
-            <Link to={"/photos/" + record.id}>{title}</Link>
+            <Link to={"/photos/"+ record.id } state={record}>{title}</Link>
         ),
            
     },
