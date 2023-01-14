@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
 import { PhotoProps } from "./PhotoProps";
@@ -17,17 +16,9 @@ function PhotoDetail() {
             setPhotoDetail(posts[+params.id - 1]);
         }
         
-    } , [params , posts])
-    // useEffect(() => {
-    //     (async () => {
-    //         const resp =await apiPhoto.get<PhotoProps[]>(`photos?id=` + params.id);
-    //         setPhotoDetail(resp.data[0]);
-    //         console.log(resp);
-    //     })()
-    // }, [params])
+    } , [params , posts]);
     return ( 
        <>
-        
             <Card
                     hoverable className="m-2"
                     style={{ width: 240, position: "relative", textAlign: "center"}}

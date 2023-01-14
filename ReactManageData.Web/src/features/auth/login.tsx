@@ -17,7 +17,7 @@ function Login() {
         
       };
       if(authSelect.token){
-        return <Navigate replace={true}  to="posts" ></Navigate>
+        return <Navigate replace={true}  to="/posts" ></Navigate>
       }
     
       return (
