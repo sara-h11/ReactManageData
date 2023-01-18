@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Button, Card, Image } from "antd";
 import Meta from "antd/es/card/Meta";
-import { PhotoProps } from "./PhotoProps";
+import { PhotoProps } from "domain/PhotoProps";
 import { ArrowLeftOutlined, CloseOutlined } from "@ant-design/icons";
 
 function PhotoDetail() {

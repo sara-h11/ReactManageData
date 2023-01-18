@@ -1,7 +1,7 @@
-import { TaskItemProps} from "./TaskItemProps";
+import { TaskItemProps} from "../../../domain/TaskItemProps";
 import {memo, useContext} from 'react';
 import { Button, Checkbox } from "antd";
-import { AppContext } from "../../App";
+import { AppContext } from "App";
 import { useDispatch } from "react-redux";
 import { removeTask, toggleTask } from "./task.slice";
 

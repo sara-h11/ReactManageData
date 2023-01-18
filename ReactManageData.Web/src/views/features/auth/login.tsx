@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form, Input } from 'antd';
-import Header from 'components/Header';
+import Header from 'core/Header';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { Navigate } from 'react-router-dom';
 import {  authSelector, login } from './auth.slice';

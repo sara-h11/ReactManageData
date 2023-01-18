@@ -1,6 +1,6 @@
 import { notification } from "antd";
 import axios from "axios"
-import { store } from "store";
+import { store } from "store/store";
 
 export const authorizedApi = axios.create(
     {

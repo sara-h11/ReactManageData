@@ -1,7 +1,7 @@
 import { Pagination , Checkbox , Table} from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import useFetchData from '../hooks/useFetchData';
-import Header from './Header';
+import useFetchData from 'hooks/useFetchData';
+import Header from 'core/Header';
 
   interface TodoProps{
     "userId": number,

@@ -3,9 +3,9 @@ import {Table , Image} from 'antd';
 import { Pagination } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { Link, Outlet } from 'react-router-dom';
-import useFetchData from '../hooks/useFetchData';
-import Header from './Header';
-import { PhotoProps } from './PhotoProps';
+import useFetchData from 'hooks/useFetchData';
+import Header from 'core/Header';
+import { PhotoProps } from 'domain/PhotoProps';
 
 function genColumn(name : string){
     return(

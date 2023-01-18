@@ -2,9 +2,9 @@ import './App.css';
 import { createContext, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { store } from './store'
+import { store } from './store/store'
 import { Provider } from 'react-redux'
-import BaseLayout from 'components/BaseLayout';
+import BaseLayout from 'core/BaseLayout';
 
 interface AppContextType {
   color : string ,

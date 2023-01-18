@@ -1,19 +1,18 @@
 
 import AppLayout from "./AppLayout";
 import {lazy, Suspense} from 'react';
-import Posts from '../features/posts/Posts';
-import TaskList from './tasks/TaskList';
+import Posts from 'views/features/posts/Posts';
+import TaskList from 'views/components/tasks/TaskList';
 import { Navigate, Route, Routes } from "react-router-dom";
-import Counter from './counter/Counter';
+import Counter from 'views/components/counter/Counter';
 import NotFound from './NotFound';
-import Login from 'features/auth/login';
+import Login from 'views/features/auth/login';
 import ProtectedRout from "./ProtectedRout";
 
-
-const Photos = lazy(() =>  import("./Photos"));
-const PhotoDetail = lazy(() =>  import("./PhotoDetail"));
-const Todos = lazy( () => import("./Todos"));
-const Comments = lazy( () => import('./Comments'));
+const Photos = lazy(() =>  import("views/components/photos/Photos"));
+const PhotoDetail = lazy(() =>  import("views/components/photos/PhotoDetail"));
+const Todos = lazy( () => import("views/components/Todos"));
+const Comments = lazy( () => import('views/components/Comments'));
 
 function BaseLayout() {
     return ( 

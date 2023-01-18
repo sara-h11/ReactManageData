@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { AppContext } from "../App";
+import { AppContext } from "App";
 import styled from 'styled-components'
 
 const Select = styled.select`

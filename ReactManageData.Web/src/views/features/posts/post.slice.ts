@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import type { RootState } from 'store'
-import { PostProps } from './PostProps'
+import type { RootState } from 'store/store'
+import { PostProps } from 'domain/PostProps'
 import { authorizedApi } from 'utils/authorizedApi'
 
 interface PostState {

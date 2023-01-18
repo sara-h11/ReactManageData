@@ -1,4 +1,4 @@
-import { authSelector } from "features/auth/auth.slice";
+import { authSelector } from "views/features/auth/auth.slice";
 import { useAppSelector } from "hooks/redux";
 import { ReactElement } from "react";
 import { Navigate } from "react-router-dom";

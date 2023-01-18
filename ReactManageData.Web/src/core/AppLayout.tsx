@@ -2,7 +2,7 @@ import { Button, Divider , Layout, Menu, theme } from 'antd';
 import { createContext, useState } from 'react';
 import SelectColor from './SelectColor';
 import { Link, Outlet } from "react-router-dom";
-import { authSelector, logout } from 'features/auth/auth.slice';
+import { authSelector, logout } from 'views/features/auth/auth.slice';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 
 const { Header, Content, Footer } = Layout;

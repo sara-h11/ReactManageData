@@ -1,7 +1,7 @@
 import { Button, Input } from "antd";
-import Header from "../Header";
+import Header from "core/Header";
 import TaskItem from "./TaskItem";
-import styles from "./task.module.css"
+import styles from "assets/css/task.module.css";
 import { useDispatch } from "react-redux";
 import { addTask, newTask, taskListSelector } from "./task.slice";
 import { useState } from "react";

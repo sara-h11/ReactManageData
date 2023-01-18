@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from 'components/counter/counterSlice'
-import taskReducer from 'components/tasks/task.slice';
-import postReduer from 'features/posts/post.slice';
-import authReducer from 'features/auth/auth.slice';
+import counterReducer from 'views/components/counter/counterSlice'
+import taskReducer from 'views/components/tasks/task.slice';
+import postReduer from 'views/features/posts/post.slice';
+import authReducer from 'views/features/auth/auth.slice';
 
 export const store = configureStore({
   reducer: {

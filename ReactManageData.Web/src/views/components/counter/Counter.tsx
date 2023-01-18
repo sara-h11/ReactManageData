@@ -1,7 +1,7 @@
 import { Badge, Button } from "antd";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import Header from "../Header";
+import Header from "core/Header";
 import {incrementOne , decrementOne , reset, counterValue} from "./counterSlice"
 
 function Counter() {
