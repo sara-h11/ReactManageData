@@ -1,10 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from 'store'
 import { PostProps } from './PostProps'
-import { api } from 'utils/api'
+import { authorizedApi } from 'utils/authorizedApi'
 
-// Define a type for the slice state
 interface PostState {
   page: number,
   pageSize : number,
@@ -13,7 +11,6 @@ interface PostState {
   data : PostProps[]
 }
 
-// Define the initial state using that type
 const initialState: PostState = {
   page: 1,
   pageSize : 10,
@@ -25,14 +22,18 @@ const initialState: PostState = {
 export const fetchData = createAsyncThunk('posts/fetchData' ,
 async ({page , pageSize} : {page :number , pageSize :number} , thunkApi) => {
   // const {page , pageSize} = thunkApi.getState() as any;
-  const resp = await api.get<PostProps[]>(`posts?_page=${page}&_limit=${pageSize}`);
+  const resp = await authorizedApi.get<PostProps[]>(`posts?_page=${page}&_limit=${pageSize}`);
   
-    return {data : resp.data , total : resp.headers["x-total-count"] , page , pageSize};
-    
-})
+    return {
+      data : resp.data ,
+      total : resp.headers["x-total-count"] ,
+      page ,
+      pageSize
+    };
+});
+
 export const postSlice = createSlice({
   name: 'post',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers : {
   },
@@ -52,14 +53,10 @@ export const postSlice = createSlice({
         console.log(action.error);
       })
   },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-   
- 
 })
 
 // export const { setPage , setPageSize  } = postSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-
 export default postSlice.reducer;
-export const postSelector = (state : RootState) => state.posts;
+export const postSelector = (state : RootState) => state.postState;

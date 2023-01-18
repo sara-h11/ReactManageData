@@ -14,7 +14,8 @@ export const AppContext = createContext<
 [AppContextType , React.Dispatch<React.SetStateAction<AppContextType>>]>([] as any);
 
 function App() {
-  const [context, setContext] = useState<AppContextType>({color : 'red' , lang : 'fa'})
+  const [context, setContext] = useState<AppContextType>({color : 'red' , lang : 'fa'});
+  
   return (
     <Provider store={store}>
         <HelmetProvider>

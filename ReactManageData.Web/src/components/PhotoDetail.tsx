@@ -10,11 +10,13 @@ function PhotoDetail() {
     const location = useLocation();
     const [photoDetail, setPhotoDetail] = useState<PhotoProps>();
     const navigate = useNavigate();
+    
     useEffect(() => {
         if(location.state){
             setPhotoDetail(location.state);
         } 
-    } , [params]);
+    } , [params, location]);
+    
     return ( 
        <>
             <Card

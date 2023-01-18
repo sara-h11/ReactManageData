@@ -7,16 +7,16 @@ import useFetchData from '../hooks/useFetchData';
 import Header from './Header';
 import { PhotoProps } from './PhotoProps';
 
-    function genColumn(name : string){
-        return(
-            {
-                title: name[0].toUpperCase() + name.slice(1) ,
-                dataIndex: name,
-                key: name ,
-              }
-        )
-    }
-  const columns: ColumnsType<PhotoProps> = [
+function genColumn(name : string){
+    return(
+        {
+            title: name[0].toUpperCase() + name.slice(1) ,
+            dataIndex: name,
+            key: name ,
+        }
+    )
+}
+const columns: ColumnsType<PhotoProps> = [
     {
         ...genColumn('albumId')
     },
@@ -28,7 +28,6 @@ import { PhotoProps } from './PhotoProps';
         render: (title: string, record) => (
             <Link to={"/photos/"+ record.id } state={record}>{title}</Link>
         ),
-           
     },
     {
         ...genColumn('thumbnailUrl'),
@@ -37,14 +36,14 @@ import { PhotoProps } from './PhotoProps';
   ];
 
 function Photos() {
-    
-   const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<PhotoProps>('photos')
+   const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<PhotoProps>('photos');
+
     return ( 
         <>  
             <Header title='Photos' content='photos' />
             <Pagination defaultCurrent={currentPage} total={totalCount} 
-            onShowSizeChange={(current, size) => setPageSize(size)} 
-            onChange={(page ) => setCurrentPage(page)}/>
+                onShowSizeChange={(current, size) => setPageSize(size)} 
+                onChange={(page ) => setCurrentPage(page)}/>
             <Outlet />
             <Table rowKey="id" columns={columns} dataSource={posts} pagination={false} loading={loading}/>
             

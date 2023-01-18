@@ -8,8 +8,8 @@ export const store = configureStore({
   reducer: {
     counterState : counterReducer,
     taskListState : taskReducer,
-    posts : postReduer,
-    auth : authReducer
+    postState : postReduer,
+    authState : authReducer
   },
 })
 

@@ -6,7 +6,6 @@ const Select = styled.select`
   border-radius : 20%
 `;
 function SelectColor() {
-    // const [color, setColor] = useState("red")
 
        const selectRef = useRef<HTMLSelectElement>(null);
         const [context , setContext] = useContext(AppContext);
@@ -19,14 +18,13 @@ function SelectColor() {
        }
     return ( 
         <>
-            {/* <select style={{color : color}} onChange={(e) => setColor(e.target.value)}> */}
-            <Select ref={selectRef} style={{color : "red", borderColor : "red"}} onChange={(e) => selectedRef(e.target.value)} className="p-2" >
+            <Select ref={selectRef} style={{color : "red", borderColor : "red"}}
+                onChange={(e) => selectedRef(e.target.value)} className="p-2" >
                 <option value="red">Red</option>
                 <option value="#057da8">Blue</option>
-                <option value ="#019121">green</option>
-                <option value="#f73975">Darkpink</option>
+                <option value ="#019121">Green</option>
+                <option value="#9302b0">Purple</option>
             </Select>
-            
         </>
      );
 }

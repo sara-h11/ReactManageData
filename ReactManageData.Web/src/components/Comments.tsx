@@ -21,13 +21,13 @@ import Header from './Header';
               }
         )
     }
+
   const columns: ColumnsType<CommentProps> = [
     {
         ...genColumn('postId')
     },
     {
         ...genColumn('id')
-     
     },
     {
         ...genColumn('name'),
@@ -41,14 +41,13 @@ import Header from './Header';
   ];
 
 const Comments = () =>{
-    
-   const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<CommentProps>('comments')
+   const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<CommentProps>('comments');
     return ( 
         <>  
             <Header title='Comments' content='comments' />
             <Pagination defaultCurrent={currentPage} total={totalCount} 
-            onShowSizeChange={(current, size) => setPageSize(size)} 
-            onChange={(page ) => setCurrentPage(page)}/>
+                onShowSizeChange={(current, size) => setPageSize(size)} 
+                onChange={(page ) => setCurrentPage(page)}/>
             <Table rowKey="id" columns={columns} dataSource={posts} pagination={false} loading={loading}/>
             
         </>

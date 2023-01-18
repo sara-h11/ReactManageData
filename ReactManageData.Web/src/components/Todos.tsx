@@ -9,22 +9,21 @@ import Header from './Header';
     "title":string,
     "completed" : boolean
 }
-    function genColumn(name : string){
-        return(
-            {
-                title: name[0].toUpperCase() + name.slice(1) ,
-                dataIndex: name,
-                key: name ,
-              }
-        )
-    }
-  const columns: ColumnsType<TodoProps> = [
+function genColumn(name : string){
+    return(
+        {
+            title: name[0].toUpperCase() + name.slice(1) ,
+            dataIndex: name,
+            key: name ,
+        }
+    )
+}
+const columns: ColumnsType<TodoProps> = [
     {
         ...genColumn('userId')
     },
     {
         ...genColumn('id')
-     
     },
     {
         ...genColumn('title'),
@@ -33,11 +32,11 @@ import Header from './Header';
         ...genColumn('completed'),
         render: (completed :boolean) => <Checkbox defaultChecked disabled checked={completed} />
     },
-  ];
+];
 
 function Todos() {
-    
-   const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<TodoProps>('todos')
+    const {currentPage , totalCount , setPageSize , setCurrentPage , posts , loading } = useFetchData<TodoProps>('todos');
+
     return ( 
         <>  
             <Header title='Todos' content='todos' />
@@ -45,7 +44,6 @@ function Todos() {
             onShowSizeChange={(current, size) => setPageSize(size)} 
             onChange={(page ) => setCurrentPage(page)}/>
             <Table rowKey="id"  columns={columns} dataSource={posts} pagination={false} loading={loading}/>
-            
         </>
      );
 }

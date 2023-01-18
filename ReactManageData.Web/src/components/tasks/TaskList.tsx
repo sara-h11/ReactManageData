@@ -10,9 +10,7 @@ import { useSelector } from "react-redux";
 export default function TaskList(){
     const dispatch = useDispatch();
     const taskList = useSelector(taskListSelector);
-    console.log(taskList);
     const [newTaskName , setNewTaskName] = useState<string>("");
-    // const [newTaskName, setNewTaskName] = useState("")
 
     function addTaskName () {
         dispatch(addTask(newTaskName));

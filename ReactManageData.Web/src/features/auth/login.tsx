@@ -7,28 +7,29 @@ import {  authSelector, login } from './auth.slice';
 function Login() {
     const dispatch = useAppDispatch();
     const authSelect = useAppSelector(authSelector);
-    const onFinish = (values: any) => {
+
+    const onFinished = (values: any) => {
         console.log('Success:', values);
         dispatch(login(values))
-      };
+    };
     
-      const onFinishFailed = (errorInfo: any) => {
+    const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
         
-      };
-      if(authSelect.token){
+     };
+    if(authSelect.token){
         return <Navigate replace={true}  to="/posts" ></Navigate>
-      }
+    }
     
-      return (
+    return (
         <>
-             <Header title='Login' content='login' />
+            <Header title='Login' content='login' />
             <Form className='m-2'
               name="basic"
               labelCol={{ span: 8 }}
               wrapperCol={{ span: 16 }}
               initialValues={{ remember: true }}
-              onFinish={onFinish}
+              onFinish={onFinished}
               onFinishFailed={onFinishFailed}
               autoComplete="off"
             >
@@ -63,5 +64,4 @@ function Login() {
       );
     };
     
-
 export default Login;

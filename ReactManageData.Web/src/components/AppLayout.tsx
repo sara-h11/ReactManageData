@@ -10,6 +10,7 @@ interface AppContextType {
   color : string ,
   lang : string
 }
+
 export const AppContext = createContext<
 [AppContextType , React.Dispatch<React.SetStateAction<AppContextType>>]>([] as any);
 
