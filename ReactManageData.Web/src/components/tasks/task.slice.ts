@@ -2,9 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from '../../store'
 import { TaskItemProps } from './TaskItemProps'
+import { useState } from 'react'
 
-
-// Define the initial state using that type
 const initialState = {
     tasks : [
         { id : 1 , taskName : "programieren" , done : true},
@@ -12,15 +11,14 @@ const initialState = {
         { id : 3 , taskName : "sport" , done : false},
     ]
 }
-
+// const [randomNum, setRandomNum] = useState(30)
 export const taskSlice = createSlice({
   name: 'task',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
     addTask : (state , action : PayloadAction<string>) => {
         state.tasks.push({
-            id : Math.floor(Math.random() *101)+10,
+            id : randomId(),
             taskName : action.payload,
             done : false
         })
@@ -37,12 +35,14 @@ export const taskSlice = createSlice({
 
     },
     newTask : (state) => {
-        const newId = Math.floor(Math.random() *101)+10;
+       
+        const newId = randomId();
         state.tasks.push({
             id : newId,
             taskName : 'TaskNumber ' + newId,
             done : false
-        })
+        });
+
     },
     editTask : (state , action : PayloadAction<{id : number , title : string}>) => {
         const task =  state.tasks.find( t => t.id === action.payload.id);
@@ -52,10 +52,13 @@ export const taskSlice = createSlice({
     }
 }
 })
-
+function randomId(){
+    const randomNum = Math.floor(Math.random() *101)+10;
+    return randomNum;
+}
 export const { addTask , newTask , toggleTask , removeTask , editTask } = taskSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 
 export default taskSlice.reducer;
-export const taskListSelector = (state : RootState) => state.taskList.tasks;
+export const taskListSelector = (state : RootState) => state.taskListState.tasks;

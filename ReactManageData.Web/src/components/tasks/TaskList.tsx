@@ -10,12 +10,15 @@ import { useSelector } from "react-redux";
 export default function TaskList(){
     const dispatch = useDispatch();
     const taskList = useSelector(taskListSelector);
-    const [newTaskName , setNewTaskName] = useState<string>("")
+    console.log(taskList);
+    const [newTaskName , setNewTaskName] = useState<string>("");
+    // const [newTaskName, setNewTaskName] = useState("")
 
     function addTaskName () {
         dispatch(addTask(newTaskName));
         setNewTaskName("");
-    }
+    };
+
     return(
         <>
              <Header title='Tasks' content="tasks" />
@@ -23,14 +26,13 @@ export default function TaskList(){
             <Button onClick={() => dispatch(newTask()) } type="primary">New Task</Button>
             <div>
                 <span>New Task : </span>
-                <Input placeholder="New TaskName" style={{ width: "240px" }}
+                <Input placeholder="Task Name" style={{ width: "240px" }}
                 onChange={e => setNewTaskName(e.target.value)} value={newTaskName}/ >
-                <Button type="primary" className="m-2" onClick={() => addTaskName()}>Add</Button>
+                <Button type="primary" className="m-2" disabled={newTaskName ? false : true} onClick={() => addTaskName()}>Add</Button>
             </div>
-            
             <ul style={{listStyle : "none"}}>
-                {taskList.map((tList) => (
-                    <TaskItem key={tList.id} tList={tList} />
+                {taskList.map((taskItem) => (
+                    <TaskItem key={taskItem.id} taskItem={taskItem} />
                 ))}
             </ul>
         </>
