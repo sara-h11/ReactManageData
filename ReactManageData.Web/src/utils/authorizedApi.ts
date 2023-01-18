@@ -19,12 +19,14 @@ authorizedApi.interceptors.response.use((response) =>  response, (error) =>
  {
         if (error.response && error.response.data){
             notification.error({
-                message:error.response.data.error})
+                message:error.response.data.error,
+                description : "Network has no data!"})
         }else {
             notification.error({
-                message:error.message
+                message:error.message,
+                description : "Network is not connected!"
         })
     }
-    console.log(error);
+    
     return Promise.reject(error);
   });

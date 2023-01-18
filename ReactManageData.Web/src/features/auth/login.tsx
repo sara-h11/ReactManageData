@@ -9,14 +9,13 @@ function Login() {
     const authSelect = useAppSelector(authSelector);
 
     const onFinished = (values: any) => {
-        console.log('Success:', values);
         dispatch(login(values))
     };
     
     const onFinishFailed = (errorInfo: any) => {
         console.log('Failed:', errorInfo);
-        
      };
+     
     if(authSelect.token){
         return <Navigate replace={true}  to="/posts" ></Navigate>
     }
